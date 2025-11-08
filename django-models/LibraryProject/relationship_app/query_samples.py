@@ -19,7 +19,7 @@ if not settings.configured:
 try:
     author_name = "Salim Ahmed"
     author = Author.objects.get(name=author_name)
-    books_by_author = author.book.all()
+    books_by_author = Book.objects.filter(author=author)
     print(f"Books by {author_name}:")
     for book in books_by_author:
         print(f"- {book.title}")
