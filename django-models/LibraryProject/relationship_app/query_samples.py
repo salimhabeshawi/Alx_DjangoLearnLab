@@ -17,13 +17,14 @@ if not settings.configured:
 
 
 try:
-    author = Author.objects.get(name="Salim Ahmed")
+    author_name = "Salim Ahmed"
+    author = Author.objects.get(name=author_name)
     books_by_author = author.book.all()
-    print("Books by Salim Ahmed:")
+    print(f"Books by {author_name}:")
     for book in books_by_author:
         print(f"- {book.title}")
 except Author.DoesNotExist:
-    print(f"No author found with name Salim Ahmed")
+    print(f"No author found with name {author_name}")
 
 library_name = "Central Library"
 try:
