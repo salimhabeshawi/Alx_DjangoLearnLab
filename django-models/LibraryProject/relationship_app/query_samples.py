@@ -37,7 +37,7 @@ except Library.DoesNotExist:
     print(f"No library found with name {library_name}")
 
 try:
-    librarian = Librarian.objects.get(library__name=library_name)
+    librarian = Librarian.objects.get(library=library_name)
     print(f"Librarian of {library_name}: {librarian.name}")
 except Librarian.DoesNotExist:
     print(f"No librarian found for library {library_name}")
