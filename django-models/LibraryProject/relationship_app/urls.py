@@ -5,12 +5,12 @@ from . import views
 urlpatterns = [
     path('register/', views.register, name='register'),
 
-    path('login/', 
+    path('login/',
          LoginView.as_view(template_name='relationship_app/login.html'),
          name='login'),
 
     path('logout/',
-         LogoutView.as_view(next_page='/relationship/login/'),
+         LogoutView.as_view(template_name='relationship/logout.html'),
          name='logout'),
 
     # your existing library path
