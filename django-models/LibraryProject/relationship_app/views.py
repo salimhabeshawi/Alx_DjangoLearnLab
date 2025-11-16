@@ -1,14 +1,14 @@
+from django.contrib.auth.decorators import permission_required, user_passes_test, login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView, LogoutView
+from django.http import HttpResponse, HttpResponseForbidden
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.detail import DetailView
 from django.contrib.auth import login
 from django.urls import reverse_lazy
-from django.http import HttpResponse, HttpResponseForbidden
 from .models import Book, Library
 from django.views import View
 from .forms import BookForm
-from django.views.generic.detail import DetailView
-from django.contrib.auth.decorators import user_passes_test, login_required, permission_required
 
 
 # Create your views here.
