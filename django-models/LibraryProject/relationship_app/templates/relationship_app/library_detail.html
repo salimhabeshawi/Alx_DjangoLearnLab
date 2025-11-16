@@ -6,6 +6,13 @@
   <body>
     <h1>Library: {{ library.name }}</h1>
 
+    {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    {% endif %}
+
     <h2>Books in this library:</h2>
 
     {% if library.books.all %}
