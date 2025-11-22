@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+  </head>
+  <body>
+    <h1>List of Books</h1>
+
+    {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    {% endif %}
+
+    {% if books %}
+    <ul>
+      {% for book in books %}
+      <li>{{ book.title }} by {{ book.author.name }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No books found.</p>
+    {% endif %}
+  </body>
+</html>
