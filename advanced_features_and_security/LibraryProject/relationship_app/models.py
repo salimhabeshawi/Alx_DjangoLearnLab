@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 # Create your models here.
 
 
@@ -54,7 +54,8 @@ class UserProfile(models.Model):
     ]
 
     user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name='userprofile')
+    settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='userprofile')
+    
     role = models.CharField(
         max_length=20, choices=ROLE_CHOICES, default=ROLE_MEMBER)
 
