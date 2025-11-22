@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     # MY apps
     'bookshelf',
     'relationship_app',
-    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/relationship/library/1/"
 LOGOUT_REDIRECT_URL = "/relationship/register/"
 
-AUTH_USER_MODEL = "accounts.CustomUser"
+AUTH_USER_MODEL = "bookshelf.CustomUser"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
