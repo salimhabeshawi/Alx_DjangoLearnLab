@@ -1,3 +1,9 @@
+# Token Authentication:
+# - Clients must send: Authorization: Token <user_token>
+# - Tokens are obtained via POST /api/get-token/ using username + password.
+# - Permissions:
+#   - BookViewSet requires authenticated users for all operations.
+
 """
 Django settings for api_project project.
 
@@ -37,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # my apps
+    # third party
+    'rest_framework.authtoken',
     'rest_framework',
+    # my apps
     'api',
 ]
 
@@ -100,6 +108,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
 
 
 # Internationalization
