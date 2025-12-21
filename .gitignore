@@ -1,4 +1,152 @@
-Introduction_to_Django/LibraryProject/db.sqlite3
-# Python compiled files
-*.pyc
+# --- Python byte-compiled / cache ---
 __pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# --- Distribution / packaging ---
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-wheel-metadata/
+
+# PEP 582; used by e.g. pipx and pdm
+__pypackages__/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Type checkers / linters
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# --- Django specific ---
+# Logs
+*.log
+logs/
+
+# Local settings & secrets
+local_settings.py
+settings_local.py
+
+# SQLite databases
+*.sqlite3
+*.sqlite3-journal
+# Common default name used in multiple apps
+db.sqlite3
+db.sqlite3-journal
+
+# Media (user uploads)
+media/
+
+# Collected static (from collectstatic)
+staticfiles/
+static_root/
+
+# Django channels / ASGI
+asgi.pid
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# gunicorn / uwsgi
+gunicorn.pid
+
+# --- Environments ---
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.envrc
+.venv
+.venv*/
+venv/
+venv*/
+env/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# IDE / Editor
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.iml
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node / front-end (if present in subprojects)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.tern-port
+
+# Sphinx / docs
+docs/_build/
+site/
+
+# Temporary / misc
+*.swp
+*.swo
+*~
+.tmp/
+tmp/
+.temp/
+
+# Backup / export artifacts
+*.bak
+*.orig
+*.rej
+
+# VS Code testing snapshots
+*.snap

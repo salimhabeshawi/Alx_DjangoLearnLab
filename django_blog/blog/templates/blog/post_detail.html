@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ object.author }}</a>
+            <small class="text-muted">{{ object.published_date|date:"F d, Y" }}</small>
+            {% if object.author == user %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+        <h2 class="article-title">{{ object.title }}</h2>
+        <p class="article-content">{{ object.content }}</p>
+        {% if object.tags.all %}
+        <p>Tags:
+            {% for tag in object.tags.all %}
+            <a href="{% url 'tag-posts' tag.slug %}" class="badge badge-primary">{{ tag.name }}</a>
+            {% endfor %}
+        </p>
+        {% endif %}
+    </div>
+</article>
+
+<h4>Comments</h4>
+{% for comment in object.comments.all %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <span class="mr-2">{{ comment.author }}</span>
+            <small class="text-muted">{{ comment.created_at|date:"F d, Y" }}</small>
+            {% if comment.author == user %}
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comment-update' comment.id %}">Edit</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comment-delete' comment.id %}">Delete</a>
+            {% endif %}
+        </div>
+        <p class="article-content">{{ comment.content }}</p>
+    </div>
+</article>
+{% empty %}
+<p>No comments yet!</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+<a class="btn btn-outline-info" href="{% url 'add-comment' object.id %}">Add Comment</a>
+{% else %}
+<a class="btn btn-outline-info" href="{% url 'login' %}">Log in to add a message</a>
+{% endif %}
+
+{% endblock %}
